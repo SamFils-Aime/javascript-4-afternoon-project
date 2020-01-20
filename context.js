@@ -2,9 +2,7 @@
   Once you complete a problem, refresh ./context.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
-
   Context is the value of the "this" keyword which is a reference to the object that "owns" the executing code
 */
 
@@ -19,7 +17,13 @@
 */
   
 
-//Code Here
+const user = {
+  username: 'sam',
+  email: 'samfilsaime@hotmail.com',
+  getUsername: function () {
+    return this.username
+  }
+}
 
 
 
@@ -41,7 +45,7 @@ class Animal {
   }
 }
 
-//Code Here
+const animal1 = new Animal('wolf', 'canine', 'dear')
 
 
 
@@ -54,14 +58,13 @@ class Animal {
 function sayHi(greeting) {
   return this.name + ' says ' + greeting
 }
-
-let who = {
+let person = {
   name: 'Scuba Steve',
   age: 35,
   location: 'Belize'
 }
 
-//Code Here
+const whoSaysHi= sayHi.bind(person)
 
 
 
@@ -76,7 +79,6 @@ function whatIsThis() {
 }
 
 // uncomment the line below and tell us what the context of "this" is for whatIsThis()
-//let context1 = ???
 
 let product = {
   name: 'snake plant',
@@ -86,8 +88,8 @@ let product = {
 
 let func = whatIsThis.bind(product)
 
+let context1 = this
 // uncomment the line below and tell us what the context of "this" is when we invoke func
-//let context2 = ???
 
 let vacation = {
   location: 'Hawaii',
@@ -96,9 +98,9 @@ let vacation = {
   nights: 6,
   whatIsThis: whatIsThis
 }
+let context2 = product
 
 // uncomment the line below and tell us what the context of "this" is when we invoke vacation.whatIsThis
-//let context3 = ???
 
 
 class Family {
@@ -107,7 +109,7 @@ class Family {
     this.numKids = numKids;
     this.numPets = numPets;
   }
-
+  
   whatIsThis() {
     return this
   }
@@ -115,5 +117,6 @@ class Family {
 
 let family1 = new Family(2, 4, 1)
 
+let context3 = vacation
 // uncomment the line below and tell us what the context of "this" is for the instance of Family created above.
-//let context4 = ???
+let context4 = family1
